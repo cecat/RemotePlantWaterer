@@ -18,8 +18,8 @@ On IFTTT you will associated your Particle account. Here for instance you can cr
 
 The particle sketch is set up so that the pump will automatically turn itself off after 900000ms (15 min).  If you want a different runTime just set it here and then flash your photon.
 
-If you slightly bend the terminals at the back of the pump it will fit very nicely into a "uxcell 3.27"x2.28"x1.3"(83mmx58mmx33mm) ABS Junction Box Electric Project Enclosure" project box.  With a dremel or equiv you can cut a hole in the box lid to slide the pump in up to its collar.
+If you slightly bend the terminals at the back of the pump it will fit very nicely into a <uxcell 3.27"x2.28"x1.3"(83mmx58mmx33mm) ABS Junction Box Electric Project Enclosure> project box.  With a dremel or equiv you can cut a hole in the box lid to slide the pump in up to its collar.
 
-The pump has in/out tubes attached, which nicely slide into standard aquarium air pump tubing. You'll want to buy some connectors in case you want to extend or split via T-connectors. To water an area, such as a planter box, you can cap the tube and use a needle to poke holes through every inch or two, creating a soaker hose.
+The pump has short in/out tubes attached, which nicely slide into standard aquarium air pump tubing. You'll want to buy some connectors in case you want to extend or split via T-connectors. To water an area, such as a planter box, you can cap the tube and use a needle to poke holes through every inch or two, creating a soaker hose.
 
 Depending on how hard your water is these will start to plug up after a few weeks, and the pump is very strong so it will either pop your end cap out (however you closed the end of the tube) or it will pop the whole tube off at the pump.
