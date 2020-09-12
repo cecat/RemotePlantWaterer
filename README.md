@@ -1,8 +1,6 @@
 # RemotePlantWaterer
 
-This is a very simple plant watering system that takes advantage of the Particle Photon and Particle's cloud service that can be connected to (e.g.) IFTTT. You could readily put a button on it or other controls, but this project assumes you're going to issue commands via the Particle integration with IFTTT.
-
-This project assumes you are reasonably familiar with Particle and IFTTT.
+This is a very simple plant watering system that takes advantage of the Particle Photon and Particle's cloud service that can be connected to (e.g.) IFTTT. You could readily put a button on it or other controls, but this project assumes you're going to issue commands via the Particle integration with IFTTT (and thus you're reasonably familiar with Particle integrations and IFTTT).
 
 ## Hardware
 I use a Particle Photon and a 12v peristaltic dosing pump, e.g., https://www.amazon.com/gp/product/B0196LDFJQ/ref=oh_aui_search_detailpage?ie=UTF8&psc=1
