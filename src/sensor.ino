@@ -5,7 +5,6 @@
 
 // behavior configuration
 //
-
 #define runTime 900000      // ms to run (15min = 900,000)
 #define brief   300000      // for a brief run (5 min = 300,000)
 // bone dry is about 4000 ; soaked is about 1200
@@ -13,19 +12,16 @@
 
 // hardware configuration
 //
-
 #define pumpPin D4          // put pump (relay) control on D4 
 
 // water sensor using A pins for power/ground to turn on/off only 
-// when needed (otherwise the probes become a battery and they erode)
+// when needed (otherwise the probes and soil act like a battery and they erode)
 #define h2oGND  A0          // GND on pin A0
 #define h2oVCC  A1          // VCC on pin A1
 #define h2oDAT  A2          // Analog data on pin A2
 
-
 // Other Vars and setup
 //
-
 int state       = 0;        // pump state
 int howLong     = 0;        // int to hold the ad hoc request to run for xxx ms
 int msPump      = 0;        // how much time have we been pumping, roughly, updated every 10s
@@ -34,18 +30,16 @@ bool thirsty    = TRUE;     // is it dry? checked every minute in housekeep
 
 // Timers
 //
-
 Timer pumpTimer(runTime, finito);   // turn it off after runTime (#defined above) ms
 Timer hkeeper(20000, housekeep);    // housekeeping stuff every 20s
 
 // Setup
 //
-
 void setup() {
     Particle.function("parse", parse);
-    Particle.variable("state", state);
-    Particle.variable("msPump", msPump);
-    Particle.variable("moisture", moisture);
+    Particle.variable("state", state);          //NOTE - if you use a cellular-connected
+    Particle.variable("msPump", msPump);        // Particle Electron don't use variables
+    Particle.variable("moisture", moisture);    // because they burn through your data ($$)
     Particle.variable("thirsty", thirsty);
     pinMode(pumpPin, OUTPUT);
     pinMode(h2oGND, OUTPUT);
@@ -58,7 +52,7 @@ void setup() {
 }
 
 void loop() {
-    // everything is interrupt- and timer-driven
+    // everything is interrupt- or timer-driven
 }
 
 // parse is called via IFTTT
@@ -67,7 +61,7 @@ int parse(String cmd) {
     cmd.trim();
     cmd.toUpperCase();
     
-    if (cmd.startsWith("ON") && thirsty) { // turn the relay ON
+    if (cmd.startsWith("ON") && thirsty) { // turn the relay ON if soil is dry
         digitalWrite(pumpPin, HIGH);
         state = 1;
         pumpTimer.start();
@@ -78,7 +72,7 @@ int parse(String cmd) {
         finito();
     }
 
-    if (cmd.startsWith("FO")) { // "FORCE" - turn the relay on ignnoring sensor
+    if (cmd.startsWith("FO")) { // "FORCE" - turn the relay on, ignoring moisture sensor
         digitalWrite(pumpPin, HIGH);
         state = 1;
         pumpTimer.start();
